@@ -3,6 +3,11 @@ import { requireAuth } from './guards';
 
 const routes = [
   {
+    path: '/',
+    name: 'Home',
+    component: () => import('@/views/Home.vue'),
+  },
+  {
     path: '/admin',
     component: () => import('@/views/admin/AdminDashboard.vue'),
     beforeEnter: requireAuth,

@@ -1,6 +1,14 @@
-<script setup>
-import { useStore } from 'vuex';
+<template>
+  <v-app>
+    <AppHeader />
+    <v-main>
+      <router-view />
+    </v-main>
+    <AppFooter />
+  </v-app>
+</template>
 
-const store = useStore();
-store.dispatch('auth/fetchUser');
+<script setup>
+//import AppHeader from '@/components/common/AppHeader.vue';
+//import AppFooter from '@/components/common/AppFooter.vue';
 </script>
