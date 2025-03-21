@@ -1,9 +1,11 @@
 import store from '@/store';
 
-export function requireAuth(to, from, next) {
-  if (store.getters['auth/isLoggedIn']) {
+export function requireAdmin(to, from, next) {
+  const user = store.state.auth.user;
+  if (user && user.role === 'admin') {
     next();
   } else {
-    next('/login');
+    alert('管理者のみアクセス可能です');
+    next('/');
   }
 }

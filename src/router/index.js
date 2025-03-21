@@ -42,6 +42,34 @@ const routes = [
     name: 'EventEdit',
     component: () => import('@/views/admin/EventEdit.vue'),
     props: true,
+  },
+  {
+    path: '/evnets/:id/reserve',
+    name: 'Reservation',
+    component: () => import('@/components/reservation/ReservationForm.vue'),
+  },
+  {
+    path: '/reservations/complete',
+    name: 'ReservationComplete',
+    component: () => import('@/views/ReservationCompleteView.vue'),
+  },
+  {
+    path: '/admin',
+    name: 'AdminDashboard',
+    component: () => import('@/views/admin/AdminDashboard.vue'),
+    beforeEnter: requireAdmin,
+  },
+  {
+    path: '/admin/events',
+    name: 'EnentManage',
+    component: () => import('@/views/admin/EventManage.vue'),
+    beforeEnter: requireAdmin,
+  },
+  {
+    path: '/admin/events/:id/participants',
+    name: 'ParticipantView',
+    component: () => import('@/views/admin/ParticipantView.vue'),
+    beforeEnter: requireAdmin,
   }
 ];
 
